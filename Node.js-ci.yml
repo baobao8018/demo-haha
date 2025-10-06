@@ -1,0 +1,22 @@
+name: Node.js CI Demo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Cài Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Chạy kiểm thử
+        run: |
+          node test.js
